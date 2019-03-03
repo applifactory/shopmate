@@ -1,11 +1,7 @@
 $small-screen: 667px
-$medium-screen: 1234px
-$large-screen: 1442px
+$medium-screen: 924px
+$large-screen: 1200px
 
 =size($size)
   @media screen and (min-width: $size)
-    @content
-
-=retina()
-  @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi)
     @content

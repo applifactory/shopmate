@@ -1,0 +1,28 @@
+nav
+  
+  .wrap
+    ul.branding
+      li
+        a.logo(routerLink="") Shopmate
+
+    ul.departments([ngClass]='{open: mobileMenuOpen}')
+      li
+        a(routerLink="/qwdfe") Women
+      li
+        a(routerLink="/qwd") Men
+      li
+        a(href="#") Kids
+      li
+        a(href="#") Shoes
+      li
+        a(href="#") Brands
+
+    ul.tools
+      li
+        a.icon-search(href="#")
+      li
+        a.icon-bag(href="#")
+  
+  .icon-back
+  .icon-burger(*ngIf='!mobileMenuOpen' '(click)'='mobileMenuOpen=true')
+  .icon-x-close-alt(*ngIf='mobileMenuOpen'  '(click)'='mobileMenuOpen=false')

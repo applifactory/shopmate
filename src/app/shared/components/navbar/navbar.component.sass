@@ -1,0 +1,127 @@
+@import 'config'
+
+\:host
+  display: block
+  background: $navbar-bg-color
+  height: 72px
+  font-family: 'Montserrat', sans-serif
+  color: $navbar-text-color
+  position: relative
+  
+  .wrap
+    +size($medium-screen)
+      padding-top: 20px
+      @supports(display: flex)
+        padding-top: 0
+        height: 72px
+        display: flex
+        flex-flow: row wrap
+        justify-content: space-between
+        align-items: center
+        ul
+          &.departments
+            flex-grow: 1
+          &.branding
+            width: 220px
+            li
+              margin: 0
+          &.tools
+            li
+              margin-right: 0
+      
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+    li
+      display: block
+      +size($medium-screen)
+        display: inline-block
+        margin: 0 22px
+    +size($medium-screen)
+      display: inline-block
+      vertical-align: middle
+      
+      
+    &.branding
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      background: $navbar-bg-color
+      height: 72px
+      z-index: $layer-navbar
+      text-align: center
+      li
+        transform: translate(0, 22px)
+      +size($medium-screen)
+        position: static
+        background: transparent
+        height: auto
+        text-align: left
+        li
+          transform: none
+          
+    &.departments
+      position: absolute
+      top: 72px
+      left: 0
+      right: 0
+      text-align: center
+      z-index: $layer-navbar - 1
+      visibility: hidden
+      opacity: 0
+      transform: translate(0, -120%)
+      transition: all 0.4s ease 
+      &.open
+        transform: translate(0, 0)
+        visibility: visible
+        opacity: 1
+      li
+        margin: 0
+        a
+          display: block
+          padding: 1em
+          background: $navbar-bg-color
+          border-top: solid 1px $navbar-border-color
+          text-decoration: none
+          color: $navbar-text-color
+          &:hover
+            color: $navbar-text-color--active
+      +size($medium-screen)
+        position: static
+        text-align: left
+        visibility: visible
+        opacity: 1
+        transform: none
+        transition: none
+        li
+          a
+            display: inline
+            padding: 1em
+            background: none
+            border-top: none
+    &.tools
+      +size($medium-screen)
+        float: right
+  
+  .logo
+    color: $navbar-logo-color
+    font-size: 24px
+    letter-spacing: 4px
+    text-transform: uppercase
+  
+  .icon-back, .icon-burger, .icon-x-close-alt
+    position: absolute
+    top: 24px
+    cursor: pointer
+    z-index: $layer-navbar + 1
+    +size($medium-screen)
+      display: none
+  .icon-back
+    left: 20px
+  .icon-burger
+    right: 20px
+  .icon-x-close-alt
+    right: 24px
+
