@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriesService, DepartmentsService } from '../core/services';
+import { Category, Department } from '../core/models';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private categoriesService: CategoriesService,
+    private departmentsService: DepartmentsService
+  ) { }
 
   ngOnInit() {
   }

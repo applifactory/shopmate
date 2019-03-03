@@ -1,5 +1,7 @@
+import { AttributeValue } from './attribute-value'
+import { Attribute } from './attribute'
+
 export interface ProductAttribute {
-  attribute_name?: string;
-  attribute_value_id?: number;
-  attribute_value?: string;
+  attribute?: Attribute,
+  values?: AttributeValue[]
 }
