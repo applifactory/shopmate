@@ -1,15 +1,19 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { RouterModule } from '@angular/router';
+import { PermalinkPipe } from './pipes/permalink.pipe';
 
 const PROVIDERS = []
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    PermalinkPipe
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent

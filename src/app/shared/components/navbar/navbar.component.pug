@@ -1,21 +1,13 @@
 nav
   
-  .wrap
+  .wrap('(click)'="this.mobileMenuOpen = false")
     ul.branding
       li
-        a.logo(routerLink="") Shopmate
+        a.logo([routerLink]="'/'") Shopmate
 
     ul.departments([ngClass]='{open: mobileMenuOpen}')
-      li
-        a(routerLink="/qwdfe") Women
-      li
-        a(routerLink="/qwd") Men
-      li
-        a(href="#") Kids
-      li
-        a(href="#") Shoes
-      li
-        a(href="#") Brands
+      li(*ngFor="let department of departments$ | async")
+        a([routerLink]="[department.department_id, department.name | permalink]" routerLinkActive="active") {{ department.name }}
 
     ul.tools
       li
@@ -23,6 +15,6 @@ nav
       li
         a.icon-bag(href="#")
   
-  .icon-back
+  a.icon-back('[routerLink]'="'/'" routerLinkActive="hidden" '[routerLinkActiveOptions]'="{exact: true}" '(click)'="this.mobileMenuOpen = false")
   .icon-burger(*ngIf='!mobileMenuOpen' '(click)'='mobileMenuOpen=true')
   .icon-x-close-alt(*ngIf='mobileMenuOpen'  '(click)'='mobileMenuOpen=false')

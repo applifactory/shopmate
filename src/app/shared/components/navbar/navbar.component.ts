@@ -1,4 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { DepartmentsService } from '@core/services';
+import { Department } from '@core/models';
 
 @Component({
   selector: 'app-navbar',
@@ -8,8 +11,11 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   public mobileMenuOpen: boolean = false; 
+  public departments$: BehaviorSubject<Department[]>;
 
-  constructor() { }
+  constructor( private departmentsService: DepartmentsService) {
+    this.departments$ = this.departmentsService.departments$;
+  }
 
   ngOnInit() {
   }
