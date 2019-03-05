@@ -1,0 +1,61 @@
+@import 'config'
+
+\:host
+  display: list-item
+  box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.2)
+  background: $product-bg-color
+  margin: 0.5em 0
+  width: 100%
+  text-align: center
+  box-sizing: border-box
+  padding: 2em 1em
+  position: relative
+  cursor: pointer
+  
+  .name
+    font-size: 16px
+    font-family: 'Montserrat', sans-serif
+    font-weight: bold
+    margin: 1em
+    color: $product-name-color
+  .description
+    color: $product-description-color
+    margin: 0.5em 0
+    font-size: 0.8rem
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(255, 255, 255, 0.95)
+    z-index: 2
+    opacity: 0
+    transition: opacity 0.3s ease
+    &:hover
+      opacity: 1
+    p
+      position: absolute
+      left: 50%
+      top: 50%
+      width: 100%
+      box-sizing: border-box
+      padding: 2em
+      margin: 0
+      transform: translate(-50%, -50%)
+  .price
+    color: $product-price-color
+    font-size: 16px
+    strong
+      display: none
+    &.discount
+      strong
+        display: inline
+        color: $product-price-color--discount
+        font-family: 'Montserrat', sans-serif
+        text-decoration: none
+        font-size: 17px
+        margin-left: 6px
+      span
+        text-decoration: line-through
+        opacity: 0.5
+  

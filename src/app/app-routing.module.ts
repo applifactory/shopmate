@@ -1,19 +1,37 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
+import { UiComponent } from '@app/ui/ui.component';
+import { ProductsComponent } from '@app/products/products.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent, 
-    pathMatch: 'full'
+    path: 'ui',
+    component: UiComponent
   },
   {
-    path: ':departmentId/:permalink',
-    component: HomeComponent,
-    // pathMatch: 'full'
-  }
+    path: '',
+    component: ProductsComponent
+  },
+  {
+    path: ':departmentLink',
+    component: ProductsComponent
+  },
+  {
+    path: ':departmentLink/:categoryLink',
+    component: ProductsComponent
+  },
+  
+
+  /*
+    /
+    /department-name-1
+    /department-name-1/category-name-5
+    /product/product-name-1
+  */
+
+  // { path: '**', component: PageNotFoundComponent }
+
 ];
 
 @NgModule({

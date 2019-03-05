@@ -8,5 +8,6 @@ export * from './department';
 export * from './order';
 export * from './product-attribute';
 export * from './product-location';
+export * from './product-results';
 export * from './product-review';
 export * from './product';

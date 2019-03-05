@@ -1,0 +1,23 @@
+@import 'config'
+
+\:host
+  ul
+    list-style: none
+    margin: 1em auto
+    padding: 0
+    +wrap()
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    flex-flow: row wrap
+    justify-content: flex-start
+    align-items: stretch
+    justify-content: space-between
+    align-content: flex-start
+    & > *
+      +size($small-screen)
+        flex-basis: 49%
+      +size($medium-screen)
+        flex-basis: 32%
+      +size($large-screen)
+        flex-basis: 24%

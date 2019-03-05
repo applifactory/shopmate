@@ -7,7 +7,7 @@ nav
 
     ul.departments([ngClass]='{open: mobileMenuOpen}')
       li(*ngFor="let department of departments$ | async")
-        a([routerLink]="[department.department_id, department.name | permalink]" routerLinkActive="active") {{ department.name }}
+        a([routerLink]="[(department.name | permalink) + '-' + department.department_id]" routerLinkActive="active") {{ department.name }}
 
     ul.tools
       li
