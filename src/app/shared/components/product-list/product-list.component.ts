@@ -15,6 +15,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   public currentPage: number = 1;
   public products: Product[];
+  public itemsOnPage: number = ITEMS_ON_PAGE;
+  public itemsTotal: number = 0;
 
   @Input()
   public set departmentId(value: number) {
@@ -46,9 +48,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   private loadProducts(page: number = undefined) {
-    if ( page !== undefined ) {
-      this.currentPage = 1;
-    }
+    this.currentPage = page !== undefined ? page : 1;
     this.loaderService.show();
     ( 
       this.categoryIdValue ?
@@ -61,6 +61,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     ).subscribe( (results: ProductResults) => {
       this.currentPage = results.page;
       this.products = results.products;
+      this.itemsTotal = results.total;
       this.loaderService.hide();
     }, () => {
       this.loaderService.hide();

@@ -1,0 +1,6 @@
+ul(*ngIf="totalPages > 1")
+  li.prev('(click)'="setPage(currentPage-1)")
+    i.icon-left
+  li(*ngFor="let n of [].constructor(totalPages).fill(0), let i = index" '[ngClass]'="{active: i+1 == currentPage}" '(click)'="setPage(i+1)") {{i+1}}
+  li.next('(click)'="setPage(currentPage+1)")
+    i.icon-right

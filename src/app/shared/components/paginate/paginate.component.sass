@@ -1,0 +1,35 @@
+@import 'config'
+
+\:host
+  +wrap()
+  display: block
+  list-style: none
+  padding: 0
+  text-align: center
+  li
+    display: inline-block
+    font-size: 'Montserrat', sans-serif
+    font-weight: bold
+    font-size: 14px
+    width: 25px
+    height: 25px
+    border-radius: 100%
+    text-align: center
+    line-height: 26px
+    margin: 0 1px
+    cursor: pointer
+    overflow: hidden
+    color: $black
+    &:hover
+      background: darken($white, 5%)
+    &.active
+      background: $red
+      color: white
+    &.prev, &.next
+      background: white
+      position: relative
+      top: -1px
+    &.prev
+      margin-right: 1em
+    &.next
+      margin-left: 1em

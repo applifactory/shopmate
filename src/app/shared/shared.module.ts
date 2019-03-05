@@ -6,6 +6,7 @@ import { PermalinkPipe } from './pipes/permalink.pipe';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductListItemComponent } from './components/product-list-item/product-list-item.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { PaginateComponent } from './components/paginate/paginate.component';
 
 const PROVIDERS = []
 
@@ -15,7 +16,8 @@ const PROVIDERS = []
     PermalinkPipe,
     ProductListComponent,
     ProductListItemComponent,
-    LoaderComponent
+    LoaderComponent,
+    PaginateComponent
   ],
   imports: [
     CommonModule,
