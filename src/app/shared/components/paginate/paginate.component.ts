@@ -20,7 +20,7 @@ export class PaginateComponent implements OnInit {
   public currentPageChanged: EventEmitter<number> = new EventEmitter<number>();
 
   public get totalPages(): number {
-    return Math.floor( (this.itemsTotal - 1) / Math.max(this.itemsOnPage, 1) ) + 1;
+    return Math.max(1, Math.floor( (this.itemsTotal - 1) / Math.max(this.itemsOnPage, 1) ) + 1);
   }
 
   public setPage(value: number) {

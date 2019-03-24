@@ -74,7 +74,8 @@ export class ProductsService {
       .pipe(
         map( (response) => ({
           products: (<any>response).rows,
-          total: (<any>response).count,
+          // TODO: fix backend error on this endpoint
+          total: (<any>response).count.count,
           page: page,
           limit: limit
         })),
