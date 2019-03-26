@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { Subject, Subscription, Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { LoaderService, ProductsService } from '@core/services';
 import { Product, ProductResults } from '@core/models';
@@ -30,8 +30,15 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.paramsChange.next();
   }
 
+  @Input()
+  public set searchQuery(value: string) {
+    this.searchQueryValue = value;
+    this.paramsChange.next();
+  }
+
   private departmentIdValue: number;
   private categoryIdValue: number;
+  private searchQueryValue: string;
   private paramsChange: Subject<void> = new Subject();
   private paramsChangeSub: Subscription;
   
@@ -50,15 +57,22 @@ export class ProductListComponent implements OnInit, OnDestroy {
   private loadProducts(page: number = undefined) {
     this.currentPage = page !== undefined ? page : 1;
     this.loaderService.show();
-    ( 
-      this.categoryIdValue ?
-      this.productsService.getCategoryProducts(this.categoryIdValue, this.currentPage, ITEMS_ON_PAGE) : 
-      (
-        this.departmentIdValue ? 
-        this.productsService.getDepartmentProducts(this.departmentIdValue, this.currentPage, ITEMS_ON_PAGE) :
-        this.productsService.getProducts(this.currentPage, ITEMS_ON_PAGE)
-      )
-    ).subscribe( (results: ProductResults) => {
+
+    let request: Observable<ProductResults>;
+
+    if ( this.searchQueryValue && this.searchQueryValue.trim().length ) {
+      request = this.productsService.searchProducts(this.searchQueryValue, this.currentPage, ITEMS_ON_PAGE);
+    } else
+    if ( this.categoryIdValue ) {
+      request = this.productsService.getCategoryProducts(this.categoryIdValue, this.currentPage, ITEMS_ON_PAGE);
+    } else 
+    if ( this.departmentIdValue ) {
+      request = this.productsService.getDepartmentProducts(this.departmentIdValue, this.currentPage, ITEMS_ON_PAGE);
+    } else {
+      request = this.productsService.getProducts(this.currentPage, ITEMS_ON_PAGE);
+    }
+    
+    request.subscribe( (results: ProductResults) => {
       this.currentPage = results.page;
       this.products = results.products;
       this.itemsTotal = results.total;

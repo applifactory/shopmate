@@ -14,6 +14,10 @@ const routes: Routes = [
     component: ProductsComponent
   },
   {
+    path: 'search/:query',
+    component: ProductsComponent
+  },
+  {
     path: ':departmentLink',
     component: ProductsComponent
   },

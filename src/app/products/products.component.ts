@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   public departmentId: number;
   public categoryId: number;
+  public searchQuery: string;
 
   private paramsSub: Subscription;
 
@@ -19,9 +20,10 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.paramsSub = this.route.params
-      .subscribe((params: { departmentLink?: string, categoryLink?: string }) => {
+      .subscribe((params: { departmentLink?: string, categoryLink?: string, query?: string }) => {
         this.departmentId = parseInt( (params.departmentLink||'').replace(/^(.*-)?(\d+)$/, '$2') ) || undefined;
         this.categoryId = parseInt( (params.categoryLink||'').replace(/^(.*-)?(\d+)$/, '$2') ) || undefined;
+        this.searchQuery = params.query;
       });
   }
 
