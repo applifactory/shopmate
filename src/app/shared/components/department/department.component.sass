@@ -5,7 +5,7 @@
   +wrap()
   .content
     padding: 4rem
-    background: #484848
+    background: $department-bg-color
     background-size: cover
     background-position: center
     position: relative
@@ -18,32 +18,32 @@
       right: 0
       bottom: 0
       left: 0
-      box-shadow: inset 20px 20px 40px rgba(0,0,0,0.1), inset -70px -60px 210px rgba(0,0,0,0.3)
+      box-shadow: $department-shadow
     &.theme-1
-      background-image: url('/assets/img/banners/street.jpg')
+      background-image: url($department-theme-bg-image--1)
       &::after
-        background: rgba(160, 84, 0, 0.6)
+        background: $department-theme-bg-color--1
     &.theme-2
-      background-image: url('/assets/img/banners/sport.jpg')
+      background-image: url($department-theme-bg-image--2)
       &::after
-        background: rgba(130, 0, 228, 0.52)
+        background: $department-theme-bg-color--2
     &.theme-3
-      background-image: url('/assets/img/banners/casual.jpg')
+      background-image: url($department-theme-bg-image--3)
       &::after
-        background: rgba(0, 154, 156, 0.68)
+        background: $department-theme-bg-color--3
     &.theme-4
-      background-image: url('/assets/img/banners/fancy.jpg')
+      background-image: url($department-theme-bg-image--4)
       &::after
-        background: rgba(173, 130, 0, 0.58)
+        background: $department-theme-bg-color--4
     h1, p, ul
       position: relative
       z-index: 1
     h1
-      color: white
+      color: $department-text-color
       margin: 0
       line-height: 1
     p
-      color: white
+      color: $department-text-color
       font-size: 1.5rem
       font-weight: 100
       opacity: 0.8
@@ -56,7 +56,7 @@
         width: 150px
         a
           display: inline-block
-          color: white
+          color: $department-text-color
           text-decoration: none
           font-weight: 900
           font-size: 1.5rem
@@ -68,7 +68,7 @@
             position: absolute
             left: 50%
             height: 2px
-            background: white
+            background: $department-text-color
             margin-left: -0.5rem
             bottom: -0.35rem
             transform: translate(-1rem, 0)
