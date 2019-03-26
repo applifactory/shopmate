@@ -52,7 +52,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.loaderService.show();
     ( 
       this.categoryIdValue ?
-      this.productsService.getCategoryProducts(this.departmentIdValue, this.currentPage, ITEMS_ON_PAGE) : 
+      this.productsService.getCategoryProducts(this.categoryIdValue, this.currentPage, ITEMS_ON_PAGE) : 
       (
         this.departmentIdValue ? 
         this.productsService.getDepartmentProducts(this.departmentIdValue, this.currentPage, ITEMS_ON_PAGE) :

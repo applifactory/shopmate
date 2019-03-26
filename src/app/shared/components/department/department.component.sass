@@ -1,0 +1,82 @@
+@import 'config'
+
+\:host
+  display: block
+  +wrap()
+  .content
+    padding: 4rem
+    background: #484848
+    background-size: cover
+    background-position: center
+    position: relative
+    &::after
+      content: ''
+      display: block
+      position: absolute
+      z-index: 0
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      box-shadow: inset 20px 20px 40px rgba(0,0,0,0.1), inset -70px -60px 210px rgba(0,0,0,0.3)
+    &.theme-1
+      background-image: url('/assets/img/banners/street.jpg')
+      &::after
+        background: rgba(160, 84, 0, 0.6)
+    &.theme-2
+      background-image: url('/assets/img/banners/sport.jpg')
+      &::after
+        background: rgba(130, 0, 228, 0.52)
+    &.theme-3
+      background-image: url('/assets/img/banners/casual.jpg')
+      &::after
+        background: rgba(0, 154, 156, 0.68)
+    &.theme-4
+      background-image: url('/assets/img/banners/fancy.jpg')
+      &::after
+        background: rgba(173, 130, 0, 0.58)
+    h1, p, ul
+      position: relative
+      z-index: 1
+    h1
+      color: white
+      margin: 0
+      line-height: 1
+    p
+      color: white
+      font-size: 1.5rem
+      font-weight: 100
+      opacity: 0.8
+      font-family: 'Playfair Display', serif
+    ul
+      padding: 0
+      list-style: none
+      li
+        display: inline-block
+        width: 150px
+        a
+          display: inline-block
+          color: white
+          text-decoration: none
+          font-weight: 900
+          font-size: 1.5rem
+          padding: 1rem 1rem 0 0 
+          position: relative
+          &::after
+            content: ''
+            display: block
+            position: absolute
+            left: 50%
+            height: 2px
+            background: white
+            margin-left: -0.5rem
+            bottom: -0.35rem
+            transform: translate(-1rem, 0)
+            opacity: 0
+            width: 0
+            transition: all 0.3s ease
+          &.active, &:hover
+            &::after
+              opacity: 1
+              width: 2rem
+            

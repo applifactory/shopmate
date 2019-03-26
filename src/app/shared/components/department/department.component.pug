@@ -1,0 +1,6 @@
+.content('class'="theme-{{department.department_id}}")
+  h1 {{department?.name}} wear
+  p {{department?.description}}
+  ul
+    li(*ngFor="let category of categories$|async")
+      a('[routerLink]'="['/', (route.params | async).departmentLink, (category.name | permalink) + '-' + category.category_id]" routerLinkActive="active") {{ category.name }}

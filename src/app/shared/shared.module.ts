@@ -7,6 +7,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductListItemComponent } from './components/product-list-item/product-list-item.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { PaginateComponent } from './components/paginate/paginate.component';
+import { DepartmentComponent } from './components/department/department.component';
 
 const PROVIDERS = []
 
@@ -17,7 +18,8 @@ const PROVIDERS = []
     ProductListComponent,
     ProductListItemComponent,
     LoaderComponent,
-    PaginateComponent
+    PaginateComponent,
+    DepartmentComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ const PROVIDERS = []
     NavbarComponent,
     PermalinkPipe,
     ProductListComponent,
-    LoaderComponent
+    LoaderComponent,
+    DepartmentComponent
   ]
 })
 export class SharedModule {
