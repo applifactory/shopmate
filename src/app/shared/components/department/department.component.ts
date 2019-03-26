@@ -48,7 +48,6 @@ export class DepartmentComponent implements OnInit, OnDestroy {
     const departments: Department[] = this.departmentsService.departments$.value;
     if ( this.departmentIdValue && departments && departments.length ) {
       this.department = departments.find( ( department: Department) => department.department_id === this.departmentIdValue )
-      console.log('deps: ', this.department);
     }
   }
 
