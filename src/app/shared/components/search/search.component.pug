@@ -1,4 +1,4 @@
 form('[ngClass]'="{compact: !searchQuery && !focused}")
   input(#searchInput type="text" '[value]'="searchQuery")
   i.icon-search('(click)'="search()")
-  i.icon-close('(click)'="reset()")
+  i.icon-close('(click)'="reset()" '*ngIf'="!!searchQuery")

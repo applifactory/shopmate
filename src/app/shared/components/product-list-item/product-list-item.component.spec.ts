@@ -41,7 +41,7 @@ describe('ProductListItemComponent', () => {
     expect(fixture.nativeElement.querySelector('.price span').innerText).toEqual(`$${PRODUCT.price}`);
     expect(fixture.nativeElement.querySelector('.price strong').innerText).toEqual(`$${PRODUCT.discounted_price}`);
     expect(fixture.nativeElement.querySelector('.description').innerText).toEqual(PRODUCT.description);
-    expect(fixture.nativeElement.querySelector('img').src).toEqual(`http://localhost:9876/assets/img/products/${PRODUCT.thumbnail}`);
+    expect(fixture.nativeElement.querySelector('img').src).toEqual(`https://backendapi.turing.com/images/products/${PRODUCT.thumbnail}`);
   });
 
   it('should link to product details', () => {
