@@ -1,3 +1,6 @@
+.wrap(*ngIf="!itemsTotal")
+  .no-results No products found
+
 app-paginate(
   '[itemsTotal]'="itemsTotal" '[itemsOnPage]'="itemsOnPage" '[currentPage]'="currentPage"
   '(currentPageChanged)'="loadProducts($event)"

@@ -8,6 +8,7 @@ import { ProductListItemComponent } from './components/product-list-item/product
 import { LoaderComponent } from './components/loader/loader.component';
 import { PaginateComponent } from './components/paginate/paginate.component';
 import { DepartmentComponent } from './components/department/department.component';
+import { SearchComponent } from './components/search/search.component';
 
 const PROVIDERS = []
 
@@ -19,7 +20,8 @@ const PROVIDERS = []
     ProductListItemComponent,
     LoaderComponent,
     PaginateComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ const PROVIDERS = []
     PermalinkPipe,
     ProductListComponent,
     LoaderComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    SearchComponent
   ]
 })
 export class SharedModule {

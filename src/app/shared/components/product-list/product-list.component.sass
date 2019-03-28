@@ -14,7 +14,6 @@
     align-items: stretch
     justify-content: space-between
     align-content: flex-start
-    min-height: 70vh
     & > *
       +size($small-screen)
         flex-basis: 49%
@@ -22,3 +21,14 @@
         flex-basis: 32%
       +size($large-screen)
         flex-basis: 24%
+  .no-results
+    +wrap()
+    background: $product-bg-color
+    text-align: center
+    box-sizing: border-box
+    padding: 4rem 1rem
+    box-shadow: $product-shadow
+    font-size: 1.4rem
+    color: $product-empty-color
+    +size($large-screen)
+      padding: 8rem 1rem

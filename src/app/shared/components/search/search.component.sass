@@ -1,0 +1,42 @@
+@import 'config'
+
+\:host
+  display: inline-block
+  form
+    position: relative
+  input
+    width: 200px
+    +size($large-screen)
+      width: 260px
+    height: 36px
+    border-radius: 18px
+    border: solid 1px $search-border-color
+    background-color: $search-bg-color
+    padding: 0 36px
+    font-size: 14px
+    font-weight: bold
+    line-height: 1.71
+    color: $search-text-color
+    outline: none
+    transition: border-color 0.3s ease
+  .icon-search
+    position: absolute
+    top: 9px
+    left: 12px
+    cursor: pointer
+    transition: all 0.3s ease
+  .icon-close
+    position: absolute
+    top: 9px
+    right: 12px
+    cursor: pointer
+    transition: all 0.3s ease
+  .compact
+    input
+      border-color: transparent
+    .icon-search
+      left: 252px
+      +size($large-screen)
+        left: 312px
+    .icon-close
+      display: none
