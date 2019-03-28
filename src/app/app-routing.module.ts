@@ -25,15 +25,6 @@ const routes: Routes = [
     path: ':departmentLink/:categoryLink',
     component: ProductsComponent
   },
-  
-
-  /*
-    /
-    /department-name-1
-    /department-name-1/category-name-5
-    /product/product-name-1
-  */
-
   // { path: '**', component: PageNotFoundComponent }
 
 ];
